@@ -6,6 +6,8 @@ const INITIAL_STATE = {
   filter: "",
   status: "idle",
   error: null,
+  page: 1,
+  nextPage: true,
 };
 
 export const advertsSlice = createSlice({
@@ -15,9 +17,12 @@ export const advertsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchAdverts.fulfilled, (state, action) => {
-        state.adverts = action.payload;
+        state.adverts = state.adverts.concat(action.payload);
         state.status = "fulfilled";
         state.error = null;
+        if (action.payload.length === 0) {
+          state.nextPage = false;
+        }
       })
       .addCase(fetchAdverts.pending, (state, { payload }) => {
         state.status = "pending";
