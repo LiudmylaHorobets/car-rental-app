@@ -14,13 +14,13 @@ export const NavLinkStyled = styled(NavLink)`
   display: flex;
   padding: 5px;
   font-size: 20px;
+  font-weight: 500;
 
-  color: black;
+  color: var(--secondary-black);
 
   &:hover,
   &:focus,
   &.active {
-    color: blue;
-    font-weight: 500;
+    color: var(--secondary-blue);
   }
 `;

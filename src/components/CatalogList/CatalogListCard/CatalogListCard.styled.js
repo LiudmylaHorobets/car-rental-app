@@ -33,15 +33,15 @@ export const CardStyled = styled.div`
 
     font-size: 16px;
     font-weight: 500;
-    color: #121417;
+    color: var(--primary-black);
   }
 
   .card-blue-text {
-    color: #3470ff;
+    color: var(--primary-blue);
   }
 
   .card-black-text {
-    color: #121417;
+    color: var(--primary-black);
   }
 
   .card-details {
@@ -53,11 +53,11 @@ export const CardStyled = styled.div`
 
     font-size: 12px;
     font-weight: 400;
-    color: #121417;
+    color: var(--primary-black);
   }
   .card-details-first,
   .card-details-second {
-    opacity: 0.5;
+    opacity: var(--opacity-text);
   }
 
   .card-button {
@@ -71,14 +71,14 @@ export const CardStyled = styled.div`
 
     font-size: 14px;
     line-height: 143%;
-    font-weight: var(--bold-font-weight);
-    color: #ffffff;
-    background-color: #3470ff;
+    font-weight: 600;
+    color: var(--primary-white);
+    background-color: var(--primary-blue);
     border-radius: 12px;
   }
 
   .card-button:hover,
   .card-button:focus {
-    background-color: #0b44cd;
+    background-color: var(--secondary-blue);
   }
 `;
