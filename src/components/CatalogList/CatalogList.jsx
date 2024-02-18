@@ -15,7 +15,7 @@ const CatalogList = () => {
 
   return (
     <CatalogListStyled>
-      <ul>
+      <ul className="catalog-list">
         {adverts.map((advert) => (
           <CatalogListCard key={advert.id} advert={advert} />
         ))}

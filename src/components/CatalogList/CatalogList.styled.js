@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CatalogListStyled = styled.div`
-  ul {
+  .catalog-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, 274px);
     grid-gap: 50px 29px;

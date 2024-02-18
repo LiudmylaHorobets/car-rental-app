@@ -8,7 +8,7 @@ export const CardStyled = styled.div`
   width: 274px;
   height: 426px;
 
-  li {
+  .card-item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,22 +51,6 @@ export const CardStyled = styled.div`
 
   .card-black-text {
     color: var(--primary-black);
-  }
-
-  .card-details {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-
-    /* margin-bottom: 24px; */
-
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--primary-black);
-  }
-  .card-details-first,
-  .card-details-second {
-    opacity: var(--opacity-text);
   }
 
   .card-button {

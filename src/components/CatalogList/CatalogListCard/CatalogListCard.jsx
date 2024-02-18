@@ -1,14 +1,15 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { CardStyled } from "./CatalogListCard.styled";
-// import CatalogModal from "../../CatalogModal/CatalogModal";
-// import Modal from "../../Modal/Modal";
+import CatalogModal from "../../CatalogModal/CatalogModal";
+import Modal from "../../Modal/Modal";
+import CardDetails from "./CardDetails/CardDetails";
 
 const CatalogListCard = ({ advert }) => {
-  // const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   return (
     <CardStyled>
-      <li key={advert.id}>
+      <li className="card-item" key={advert.id}>
         <div className="card-container">
           <img className="card-img" src={advert.img} alt={advert.model} />
           <div className="card-title-wrap">
@@ -25,32 +26,21 @@ const CatalogListCard = ({ advert }) => {
             </p>
             <p className="card-price">{advert.rentalPrice}</p>
           </div>
-          <div className="card-details">
-            <p className="card-details-first">
-              {[advert.address[2], advert.address[3], advert.rentalCompany]
-                .filter(Boolean)
-                .join(" | ")}
-            </p>
-            <p className="card-details-second">
-              {[advert.type, advert.model, advert.id, advert.functionalities[0]]
-                .filter(Boolean)
-                .join(" | ")}
-            </p>
-          </div>
+          <CardDetails advert={advert} />
         </div>
         <button
           className="card-button"
           type="button"
-          // onClick={() => setVisible(true)}
+          onClick={() => setVisible(true)}
         >
           Learn more
         </button>
       </li>
-      {/* {visible && (
+      {visible && (
         <Modal setVisible={setVisible}>
           <CatalogModal advert={advert} />
         </Modal>
-      )} */}
+      )}
     </CardStyled>
   );
 };
