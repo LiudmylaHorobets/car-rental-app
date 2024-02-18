@@ -4,6 +4,7 @@ import LoadMore from "../../components/LoadMore/LoadMore";
 import { useDispatch } from "react-redux";
 import { CatalogWrapper } from "./CatalogPage.styled";
 import { fetchAdverts } from "../../redux/advert/operation";
+import SearchForm from "../../components/SearchForm/SearchForm";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const CatalogPage = () => {
   return (
     <>
       <CatalogWrapper>
+        <SearchForm />
         <CatalogList />
         {nextPage && <LoadMore onClick={onClick} />}
       </CatalogWrapper>

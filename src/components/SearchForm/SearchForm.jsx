@@ -1,6 +1,13 @@
 import { useState } from "react";
+import {
+  SearchFormStyled,
+  LabelContainer,
+  LabelTitle,
+  InputWrraper,
+  SearchFormBtn,
+} from "./SearchForm.styled";
 
-const SearchForm = () => {
+const SearchForm = (setQuery) => {
   const [brand, setBrand] = useState("");
   const [priceForHour, setPriceForHour] = useState("");
   const [mileageFrom, setMileageFrom] = useState("");
@@ -8,41 +15,67 @@ const SearchForm = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    //   dispatch action
+    const query = {
+      brand,
+      priceForHour,
+      mileageFrom,
+      mileageTo,
+    };
+    setQuery(query);
   };
 
   return (
-    <form>
-      <label htmlFor="brand">Car brand</label>
-      <input
-        type="text"
-        id="brand"
-        value={brand}
-        onChange={(e) => setBrand(e.target.value)}
-        placeholder="Enter the text"
-      />
-      <label htmlFor="priceForHour">Price/ 1 hour</label>
-      <input
-        type="text"
-        id="priceForHour"
-        value={priceForHour}
-        onChange={(e) => setPriceForHour(e.target.value)}
-      />
-      <label htmlFor="mileage">Car mileage / km</label>
-      <input
-        type="text"
-        id="mileage"
-        value={mileageFrom}
-        onChange={(e) => setMileageFrom(e.target.value)}
-      />
-      <input
-        type="text"
-        id="mileage"
-        value={mileageTo}
-        onChange={(e) => setMileageTo(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-    </form>
+    <SearchFormStyled>
+      <form className="search-form" onSubmit={handleSearch}>
+        <LabelContainer>
+          <LabelTitle>Car brand</LabelTitle>
+          <input
+            className="search-input"
+            type="text"
+            id="brand"
+            value={brand}
+            onChange={(e) => setBrand(e.target.value)}
+            placeholder="Enter the text"
+          />
+        </LabelContainer>
+        <LabelContainer>
+          <LabelTitle>Price/ 1 hour</LabelTitle>
+
+          <input
+            className="search-input"
+            type="text"
+            id="priceForHour"
+            value={priceForHour}
+            onChange={(e) => setPriceForHour(e.target.value)}
+            placeholder="To $"
+          />
+        </LabelContainer>
+        <LabelContainer>
+          <LabelTitle>Car mileage / km</LabelTitle>
+          <InputWrraper>
+            <span className="span-km-left">From</span>
+            <input
+              className="search-input-kmleft"
+              type="text"
+              id="mileageFrom"
+              value={mileageFrom}
+              onChange={(e) => setMileageFrom(e.target.value)}
+            />
+          </InputWrraper>
+          <InputWrraper>
+            <span className="span-km-right">To</span>
+            <input
+              className="search-input-km right"
+              type="text"
+              id="mileageTo"
+              value={mileageTo}
+              onChange={(e) => setMileageTo(e.target.value)}
+            />
+          </InputWrraper>
+        </LabelContainer>
+        <SearchFormBtn onClick={handleSearch}>Search</SearchFormBtn>
+      </form>
+    </SearchFormStyled>
   );
 };
 
