@@ -15,9 +15,11 @@ const CatalogList = () => {
 
   return (
     <CatalogListStyled>
-      {adverts.map((advert) => (
-        <CatalogListCard key={advert.id} advert={advert} />
-      ))}
+      <ul>
+        {adverts.map((advert) => (
+          <CatalogListCard key={advert.id} advert={advert} />
+        ))}
+      </ul>
     </CatalogListStyled>
   );
 };

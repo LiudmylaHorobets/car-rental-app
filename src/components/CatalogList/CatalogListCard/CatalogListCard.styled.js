@@ -8,6 +8,15 @@ export const CardStyled = styled.div`
   width: 274px;
   height: 426px;
 
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 274px;
+    height: 426px;
+  }
+
   .card-img {
     margin-bottom: 14px;
 
@@ -49,7 +58,7 @@ export const CardStyled = styled.div`
     flex-direction: column;
     gap: 4px;
 
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
 
     font-size: 12px;
     font-weight: 400;
