@@ -39,6 +39,7 @@ export const ModalDiscription = styled.div`
   .modal-list {
     display: flex;
     flex-wrap: wrap;
+    gap: 4px;
   }
   .modal-list-first {
     margin-bottom: 12px;
@@ -71,7 +72,7 @@ export const ModalDiscription = styled.div`
   .condition-block {
     margin-bottom: 24px;
   }
- 
+
   .condition-list {
     display: flex;
     flex-wrap: wrap;

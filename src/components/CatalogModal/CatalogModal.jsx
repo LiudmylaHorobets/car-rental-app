@@ -57,7 +57,7 @@ const CatalogModal = ({ open, onCloseModal, advert }) => {
               {advert.functionalities.map((item, index) => (
                 <li className="modal-list-item" key={item}>
                   {item}
-                  {index < advert.accessories.length - 1 && " | "}
+                  {index < advert.functionalities.length - 1 && " | "}
                 </li>
               ))}
             </ul>
