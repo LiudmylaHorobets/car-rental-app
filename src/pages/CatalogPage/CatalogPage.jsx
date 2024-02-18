@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import CatalogList from "../components/CatalogList/CatalogList";
-import LoadMore from "../components/LoadMore/LoadMore";
+import CatalogList from "../../components/CatalogList/CatalogList";
+import LoadMore from "../../components/LoadMore/LoadMore";
 import { useDispatch } from "react-redux";
-import { fetchAdverts } from "../redux/advert/operation";
 import { CatalogWrapper } from "./CatalogPage.styled";
+import { fetchAdverts } from "../../redux/advert/operation";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -25,10 +25,12 @@ const CatalogPage = () => {
   };
 
   return (
-    <CatalogWrapper>
-      <CatalogList />
-      {nextPage && <LoadMore onClick={onClick} />}
-    </CatalogWrapper>
+    <>
+      <CatalogWrapper>
+        <CatalogList />
+        {nextPage && <LoadMore onClick={onClick} />}
+      </CatalogWrapper>
+    </>
   );
 };
 

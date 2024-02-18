@@ -1,15 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import { Suspense, lazy } from "react";
+import Loader from "./components/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
-const CatalogPage = lazy(() => import("./pages/CatalogPage"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage"));
 
 const App = () => {
   return (
     <div>
-      <Suspense>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
