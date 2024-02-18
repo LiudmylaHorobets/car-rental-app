@@ -6,16 +6,15 @@ import {
   InputContainer,
   SearchFormBtn,
 } from "./SearchForm.styled";
-import { useSelector } from "react-redux";
-import { getAdverts } from "../../redux/advert/selector";
+import makes from "../../data/makes.json";
 
-const SearchForm = ({ setQuery }) => {
+const SearchForm = ({ setQuery, advert }) => {
   const [brand, setBrand] = useState("");
   const [priceForHour, setPriceForHour] = useState("");
   const [mileageFrom, setMileageFrom] = useState("");
   const [mileageTo, setMileageTo] = useState("");
 
-  const brandOptions = useSelector(getAdverts);
+  const brandOptions = makes;
 
   const handleBrandChange = (e) => {
     setBrand(e.target.value);
@@ -23,7 +22,7 @@ const SearchForm = ({ setQuery }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const query = {
+const query = {
       brand,
       priceForHour,
       mileageFrom,
@@ -46,8 +45,8 @@ const SearchForm = ({ setQuery }) => {
           >
             <option value="">Enter the text</option>
             {brandOptions.map((option) => (
-              <option key={option.id} value={option.make}>
-                {option.make}
+              <option key={option} value={option}>
+                {option}
               </option>
             ))}
           </select>
@@ -62,7 +61,7 @@ const SearchForm = ({ setQuery }) => {
             onChange={(e) => setPriceForHour(e.target.value)}
           >
             <option value="">To $</option>
-            {[...Array(80)].map((_, index) => (
+            {[...Array(100)].map((_, index) => (
               <option key={index} value={(index + 1) * 10}>
                 {(index + 1) * 10}
               </option>

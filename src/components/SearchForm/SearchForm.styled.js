@@ -93,4 +93,9 @@ export const SearchFormBtn = styled.button`
   background-color: var(--primary-blue);
   border-radius: 12px;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: var(--secondary-blue);
+  }
 `;

@@ -1,7 +1,9 @@
+import Favorites from "../components/Favorites/Favorites";
+
 const FavoritesPage = () => {
   return (
     <>
-      <h1>FavoritesPage</h1>
+      <Favorites />
     </>
   );
 };
