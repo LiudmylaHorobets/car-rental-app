@@ -3,7 +3,7 @@ import {
   SearchFormStyled,
   LabelContainer,
   LabelTitle,
-  InputWrraper,
+  InputContainer,
   SearchFormBtn,
 } from "./SearchForm.styled";
 
@@ -52,26 +52,28 @@ const SearchForm = (setQuery) => {
         </LabelContainer>
         <LabelContainer>
           <LabelTitle>Car mileage / km</LabelTitle>
-          <InputWrraper>
-            <span className="span-km-left">From</span>
-            <input
-              className="search-input-kmleft"
-              type="text"
-              id="mileageFrom"
-              value={mileageFrom}
-              onChange={(e) => setMileageFrom(e.target.value)}
-            />
-          </InputWrraper>
-          <InputWrraper>
-            <span className="span-km-right">To</span>
-            <input
-              className="search-input-km right"
-              type="text"
-              id="mileageTo"
-              value={mileageTo}
-              onChange={(e) => setMileageTo(e.target.value)}
-            />
-          </InputWrraper>
+          <div className="wrap">
+            <InputContainer>
+              <span className="span-left">From</span>
+              <input
+                className="search-input-km left"
+                type="text"
+                id="mileageFrom"
+                value={mileageFrom}
+                onChange={(e) => setMileageFrom(e.target.value)}
+              />
+            </InputContainer>
+            <InputContainer>
+              <span className="span-right">To</span>
+              <input
+                className="search-input-km right"
+                type="text"
+                id="mileageTo"
+                value={mileageTo}
+                onChange={(e) => setMileageTo(e.target.value)}
+              />
+            </InputContainer>
+          </div>
         </LabelContainer>
         <SearchFormBtn onClick={handleSearch}>Search</SearchFormBtn>
       </form>

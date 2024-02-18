@@ -29,8 +29,8 @@ const CatalogPage = () => {
     <>
       <CatalogWrapper>
         <SearchForm />
-        <CatalogList />
-        {nextPage && <LoadMore onClick={onClick} />}
+        {/* <CatalogList /> */}
+        {/* {nextPage && <LoadMore onClick={onClick} />} */}
       </CatalogWrapper>
     </>
   );
