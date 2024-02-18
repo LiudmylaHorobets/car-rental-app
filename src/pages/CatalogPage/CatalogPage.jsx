@@ -10,9 +10,7 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
   const [nextPage, setNextPage] = useState(false);
-  const [query, setQuery] = useState(() => {
-    return localStorage.getItem("query") || "";
-  });
+  const [query, setQuery] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAdverts(page)).then((action) => {
