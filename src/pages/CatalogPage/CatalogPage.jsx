@@ -10,6 +10,9 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
   const [nextPage, setNextPage] = useState(false);
+  const [query, setQuery] = useState(() => {
+    return localStorage.getItem("query") || "";
+  });
 
   useEffect(() => {
     dispatch(fetchAdverts(page)).then((action) => {
@@ -28,9 +31,9 @@ const CatalogPage = () => {
   return (
     <>
       <CatalogWrapper>
-        <SearchForm />
-        {/* <CatalogList /> */}
-        {/* {nextPage && <LoadMore onClick={onClick} />} */}
+        <SearchForm setQuery={setQuery} />
+        <CatalogList query={query} />
+        {nextPage && <LoadMore onClick={onClick} />}
       </CatalogWrapper>
     </>
   );

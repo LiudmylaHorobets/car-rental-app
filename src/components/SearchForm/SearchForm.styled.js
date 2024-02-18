@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const SearchFormStyled = styled.div`
+  margin-bottom: 50px;
+
   .search-form {
     display: flex;
     flex-direction: row;
@@ -27,9 +29,7 @@ export const LabelContainer = styled.label`
     background-color: #f7f7fb;
     border-radius: 14px;
     color: var(--primary-black);
-  }
-  .search-input::placeholder {
-    color: var(--primary-black);
+    cursor: pointer;
   }
   .wrap {
     display: flex;
@@ -45,21 +45,24 @@ export const LabelTitle = styled.span`
 
 export const InputContainer = styled.div`
   position: relative;
+
   .search-input-km {
     display: block;
-    width: 160px;
+    width: 85px;
     height: 48px;
     border: none;
     background-color: rgba(247, 247, 251, 1);
     color: rgba(18, 20, 23, 1);
     font-size: 18px;
-    text-indent: 80px;
+    cursor: pointer;
   }
   .left {
+    padding-left: 75px;
     border-radius: 14px 0 0 14px;
     border-right: 1px solid rgba(138, 138, 137, 0.2);
   }
   .right {
+    padding-left: 75px;
     border-radius: 0 14px 14px 0;
     border-left: 1px solid rgba(138, 138, 137, 0.2);
   }
@@ -89,4 +92,5 @@ export const SearchFormBtn = styled.button`
   color: var(--primary-white);
   background-color: var(--primary-blue);
   border-radius: 12px;
+  cursor: pointer;
 `;

@@ -20,9 +20,6 @@ export const advertsSlice = createSlice({
         state.adverts = state.adverts.concat(action.payload);
         state.status = "fulfilled";
         state.error = null;
-        if (action.payload.length === 0) {
-          state.nextPage = false;
-        }
       })
       .addCase(fetchAdverts.pending, (state, { payload }) => {
         state.status = "pending";

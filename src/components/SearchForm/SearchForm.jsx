@@ -6,12 +6,20 @@ import {
   InputContainer,
   SearchFormBtn,
 } from "./SearchForm.styled";
+import { useSelector } from "react-redux";
+import { getAdverts } from "../../redux/advert/selector";
 
-const SearchForm = (setQuery) => {
+const SearchForm = ({ setQuery }) => {
   const [brand, setBrand] = useState("");
   const [priceForHour, setPriceForHour] = useState("");
   const [mileageFrom, setMileageFrom] = useState("");
   const [mileageTo, setMileageTo] = useState("");
+
+  const brandOptions = useSelector(getAdverts);
+
+  const handleBrandChange = (e) => {
+    setBrand(e.target.value);
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -29,26 +37,37 @@ const SearchForm = (setQuery) => {
       <form className="search-form" onSubmit={handleSearch}>
         <LabelContainer>
           <LabelTitle>Car brand</LabelTitle>
-          <input
+          <select
             className="search-input"
             type="text"
             id="brand"
             value={brand}
-            onChange={(e) => setBrand(e.target.value)}
-            placeholder="Enter the text"
-          />
+            onChange={handleBrandChange}
+          >
+            <option value="">Enter the text</option>
+            {brandOptions.map((option) => (
+              <option key={option.id} value={option.make}>
+                {option.make}
+              </option>
+            ))}
+          </select>
         </LabelContainer>
         <LabelContainer>
           <LabelTitle>Price/ 1 hour</LabelTitle>
-
-          <input
+          <select
             className="search-input"
             type="text"
             id="priceForHour"
             value={priceForHour}
             onChange={(e) => setPriceForHour(e.target.value)}
-            placeholder="To $"
-          />
+          >
+            <option value="">To $</option>
+            {[...Array(80)].map((_, index) => (
+              <option key={index} value={(index + 1) * 10}>
+                {(index + 1) * 10}
+              </option>
+            ))}
+          </select>
         </LabelContainer>
         <LabelContainer>
           <LabelTitle>Car mileage / km</LabelTitle>
@@ -61,6 +80,7 @@ const SearchForm = (setQuery) => {
                 id="mileageFrom"
                 value={mileageFrom}
                 onChange={(e) => setMileageFrom(e.target.value)}
+                pattern="[0-9]*"
               />
             </InputContainer>
             <InputContainer>
@@ -71,6 +91,7 @@ const SearchForm = (setQuery) => {
                 id="mileageTo"
                 value={mileageTo}
                 onChange={(e) => setMileageTo(e.target.value)}
+                pattern="[0-9]*"
               />
             </InputContainer>
           </div>
