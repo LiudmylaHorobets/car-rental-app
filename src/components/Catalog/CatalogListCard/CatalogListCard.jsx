@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CardStyled } from "./CatalogListCard.styled";
 import CatalogModal from "../../CatalogModal/CatalogModal";
 import Modal from "../../Modal/Modal";
-import CardDetails from "./CardDetails/CardDetails";
+import CardDetails from "../CardDetails/CardDetails";
 
 const CatalogListCard = ({ advert }) => {
   const [visible, setVisible] = useState(false);

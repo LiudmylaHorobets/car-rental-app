@@ -3,11 +3,10 @@ import { fetchAdverts } from "./operation";
 
 const INITIAL_STATE = {
   adverts: [],
-  filter: "",
-  status: "idle",
-  error: null,
   page: 1,
-  nextPage: true,
+  brand: null,
+  isLoading: false,
+  error: null,
 };
 
 export const advertsSlice = createSlice({
@@ -18,15 +17,16 @@ export const advertsSlice = createSlice({
     builder
       .addCase(fetchAdverts.fulfilled, (state, action) => {
         state.adverts = state.adverts.concat(action.payload);
-        state.status = "fulfilled";
+        state.isLoading = false;
         state.error = null;
       })
-      .addCase(fetchAdverts.pending, (state, { payload }) => {
-        state.status = "pending";
+      .addCase(fetchAdverts.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
       })
-      .addCase(fetchAdverts.rejected, (state, { payload }) => {
-        state.status = "rejected";
-        state.error = payload;
+      .addCase(fetchAdverts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });

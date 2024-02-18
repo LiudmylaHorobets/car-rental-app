@@ -4,7 +4,7 @@ import {
   ModalButton,
 } from "./CatalogModal.styled";
 
-const CatalogModal = ({ open, onCloseModal, advert }) => {
+const CatalogModal = ({ advert }) => {
   return (
     <>
       <CatalogModalStyled>
