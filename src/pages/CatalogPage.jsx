@@ -3,6 +3,7 @@ import CatalogList from "../components/CatalogList/CatalogList";
 import LoadMore from "../components/LoadMore/LoadMore";
 import { useDispatch } from "react-redux";
 import { fetchAdverts } from "../redux/advert/operation";
+import { CatalogWrapper } from "./CatalogPage.styled";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -24,10 +25,10 @@ const CatalogPage = () => {
   };
 
   return (
-    <main>
+    <CatalogWrapper>
       <CatalogList />
       {nextPage && <LoadMore onClick={onClick} />}
-    </main>
+    </CatalogWrapper>
   );
 };
 
