@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CardStyled = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,6 +19,7 @@ export const CardStyled = styled.div`
   }
 
   .card-img {
+    /* position: relative; */
     margin-bottom: 14px;
 
     width: 274px;
@@ -73,5 +75,35 @@ export const CardStyled = styled.div`
   .card-button:hover,
   .card-button:focus {
     background-color: var(--secondary-blue);
+  }
+`;
+export const FavoriteBtn = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+
+  .icon-favorite {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary-blue);
+    stroke: none;
+    cursor: pointer;
+  }
+
+  .icon-non-favorite {
+    width: 18px;
+    height: 18px;
+    stroke: var(--primary-white);
+    fill: none;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      stroke: var(--primary-blue);
+      fill: none;
+    }
   }
 `;

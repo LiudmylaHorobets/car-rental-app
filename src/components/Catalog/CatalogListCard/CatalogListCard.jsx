@@ -1,17 +1,30 @@
 import { useState } from "react";
-import { CardStyled } from "./CatalogListCard.styled";
+import { CardStyled, FavoriteBtn } from "./CatalogListCard.styled";
 import CatalogModal from "../../CatalogModal/CatalogModal";
 import Modal from "../../Modal/Modal";
 import CardDetails from "../CardDetails/CardDetails";
+import Icon from "../../Icon";
 
 const CatalogListCard = ({ advert }) => {
   const [visible, setVisible] = useState(false);
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   return (
     <CardStyled>
       <li className="card-item" key={advert.id}>
         <div className="card-container">
           <img className="card-img" src={advert.img} alt={advert.model} />
+          <FavoriteBtn onClick={toggleFavorite}>
+            <Icon
+              className={isFavorite ? "icon-favorite" : "icon-non-favorite"}
+              id="heart"
+            />
+          </FavoriteBtn>
           <div className="card-title-wrap">
             <p className="card-title">
               <span>{advert.make}</span>
